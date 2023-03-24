@@ -1,0 +1,8 @@
+{
+  "name": "input",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "modules/input/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {}
+}

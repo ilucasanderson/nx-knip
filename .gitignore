@@ -1,0 +1,32 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+dist
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+modules/**/coverage
+
+# production
+modules/**/dist*
+
+# misc
+.DS_Store
+
+npm-debug.log*
+npm-error.log*
+yarn-error.log*
+
+/nbproject/private/
+/nbproject/
+
+.env.local
+
+.tool-versions
+
+.idea
+

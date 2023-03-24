@@ -1,0 +1,74 @@
+{
+  "name": "my-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/my-app/src",
+  "projectType": "application",
+  "tags": ["scope:app"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/my-app",
+        "index": "apps/my-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/my-app/src/index.tsx",
+        "tsConfig": "apps/my-app/tsconfig.app.json",
+        "scripts": [],
+        "assets": [],
+        "generateIndexHtml": true
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": false,
+          "vendorChunk": true,
+          "assets": []
+        },
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "dependsOn": [],
+      "options": {
+        "buildTarget": "my-app:build",
+        "open": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "my-app:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "my-app:build:production"
+        }
+      }
+    },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/my-app",
+        "command": "tsc --project tsconfig.spec.json --noEmit"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/my-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
