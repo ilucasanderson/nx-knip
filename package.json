@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "rm -rf dist && env-cmd -r apps/my-app/.env-cmdrc.json -e development nx run my-app:build:development --prod --baseHref=/",
-    "start": "env-cmd -r apps/my-app/.env-cmdrc.json -e local nx serve my-app"
+    "start": "env-cmd -r apps/my-app/.env-cmdrc.json -e local nx serve my-app",
+    "knip": "nx affected --target=knip-run --base=$NX_BASE --head=$NX_HEAD"
   },
   "dependencies": {
     "core-js": "3.6.5",
@@ -30,6 +31,7 @@
     "@types/react-dom": "17.0.19",
     "env-cmd": "10.1.0",
     "html-webpack-plugin": "5.5.0",
+    "knip": "2.0.0",
     "nx": "15.8.8",
     "react-refresh": "0.14.0",
     "typescript": "4.7.4",

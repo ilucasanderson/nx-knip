@@ -4,5 +4,13 @@
   "sourceRoot": "modules/input/src",
   "projectType": "library",
   "tags": [],
-  "targets": {}
+  "targets": {
+    "knip-run": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "modules/ui/input",
+        "commands": ["knip --include files --exports"]
+      }
+    }
+  }
 }
